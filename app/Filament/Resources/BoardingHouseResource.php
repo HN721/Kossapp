@@ -18,7 +18,10 @@ class BoardingHouseResource extends Resource
 {
     protected static ?string $model = BoardingHouse::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-home-modern';
+    protected static ?string $navigationGroup = 'Boarding House Management';
+
+
 
     public static function form(Form $form): Form
     {
@@ -37,7 +40,7 @@ class BoardingHouseResource extends Resource
                                 Forms\Components\Select::make('category_id')->relationship('category', 'name')->required(),
                                 Forms\Components\RichEditor::make('description')->required(),
                                 Forms\Components\TextInput::make('price')->numeric()->prefix('IDR')->required(),
-                                Forms\Components\Textarea::make('address')->required(),
+                                Forms\Components\Textarea::make('adress')->required(),
                             ]),
                         Forms\Components\Tabs\Tab::make('Bonus Ngekoss')
                             ->schema([
@@ -59,8 +62,10 @@ class BoardingHouseResource extends Resource
                                         Forms\Components\TextInput::make('capacity')->required()->numeric(),
                                         Forms\Components\TextInput::make('price_per_month')->required()->numeric(),
                                         Forms\Components\Toggle::make('is_available')->required(),
-                                        Forms\Components\Repeater::make('roomImages')->relationship('roomImages'),
-                                        Forms\Components\FileUpload::make('image')->image()->directory('rooms')->required(),
+                                        Forms\Components\Repeater::make('roomImages')->relationship('roomImages')->schema([
+                                            Forms\Components\FileUpload::make('image')->image()->directory('rooms')->required(),
+
+                                        ]),
 
 
                                     ]),
