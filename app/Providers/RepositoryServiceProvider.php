@@ -19,15 +19,17 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             CityRepositoryInterfaces::class,
-            CityRepository::class,
+            CityRepository::class
         );
+
         $this->app->bind(
             CategoryRepositoryInterfaces::class,
-            CategoryRepository::class,
+            CategoryRepository::class
         );
+
         $this->app->bind(
             BoardingHouseRepositoryInterfaces::class,
-            BoardingRepository::class,
+            BoardingRepository::class
         );
     }
 

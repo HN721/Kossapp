@@ -7,7 +7,7 @@ use App\Interfaces\CategoryRepositoryInterfaces;
 use App\Interfaces\CityRepositoryInterfaces;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class BoardingHouseController extends Controller
 {
     private CityRepositoryInterfaces $cityRepository;
     private CategoryRepositoryInterfaces $categoryRepository;
@@ -22,12 +22,25 @@ class HomeController extends Controller
         $this->categoryRepository = $categoryRepository;
         $this->boardingHouseRepository = $boardingHouseRepository;
     }
-    public function index()
+    public function find()
     {
         $categories = $this->categoryRepository->getAllCategories();
-        $popularBoardingHouses = $this->boardingHouseRepository->getPopularBoardingHouses();
         $cities = $this->cityRepository->getAllCities();
-        $boardingHouses = $this->boardingHouseRepository->getAllBoardingHouses();
-        return view('pages.home', compact('categories', 'popularBoardingHouses', 'cities', 'boardingHouses'));
+        return view('pages.BoardingHouse.find', compact('categories', 'cities'));
+    }
+    public function show($slug)
+    {
+        $boardingHouse = $this->boardingHouseRepository->getBoardingHouseBySlug($slug);
+        return view('pages.BoardingHouse.show', compact('boardingHouse'));
+    }
+    public function rooms($slug)
+    {
+        $boardingHouse = $this->boardingHouseRepository->getBoardingHouseBySlug($slug);
+        return view('pages.BoardingHouse.rooms', compact('boardingHouse'));
+    }
+    public function findResult(Request $request)
+    {
+        $boardingHouses = $this->boardingHouseRepository->getAllBoardingHouses($request);
+        return view('pages.BoardingHouse.find-result', compact('boardingHouses'));
     }
 }
