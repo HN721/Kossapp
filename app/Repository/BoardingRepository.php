@@ -4,7 +4,7 @@ namespace App\Repository;
 
 use App\Interfaces\BoardingHouseRepositoryInterfaces;
 use App\Models\BoardingHouse;
-use Filament\Forms\Components\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class BoardingRepository  implements BoardingHouseRepositoryInterfaces
 {
