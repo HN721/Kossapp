@@ -20,8 +20,8 @@ class CityController extends Controller
     }
     public function show($slug)
     {
-        $boardingHouses = $this->boardingHouseRepository->getBoardingHouseByCategorySlug($slug);
+        $boardingHouses = $this->boardingHouseRepository->getBoardingHouseByCitySlug($slug);
         $city = $this->cityRepository->getCityBySlug($slug);
-        return view('pages.category.show', compact('boardingHouses', 'city'));
+        return view('pages.city.show', compact('boardingHouses', 'city'));
     }
 }

@@ -43,7 +43,7 @@ class BoardingRepository  implements BoardingHouseRepositoryInterfaces
             $query->where('slug', $slug);
         })->get();
     }
-    public function getBoardingHouseBySlug($slug)
+    public function  getBoardingHouseBySlug($slug)
     {
         return BoardingHouse::where('slug', $slug)->first();
     }

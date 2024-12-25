@@ -25,7 +25,7 @@ class TestimonialResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Select::make('borarding_house_id')->relationship('boardingHouse', 'name')->required()
+                Forms\Components\Select::make('boarding_house_id')->relationship('boardingHouse', 'name')->required()
                     ->columnSpan(2),
                 Forms\Components\FileUpload::make('photo')->image()->directory('testimonial')->required()->columnSpan(2),
                 Forms\Components\Textarea::make('content')->required()
