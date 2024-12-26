@@ -10,4 +10,5 @@ interface BoardingHouseRepositoryInterfaces
     public function getBoardingHouseByCategorySlug($slug);
 
     public function getBoardingHouseBySlug($slug);
+    public function getBoardingHouseRoomById($id);
 }
