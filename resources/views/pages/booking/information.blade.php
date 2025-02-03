@@ -71,6 +71,9 @@
                     class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                     placeholder="Write your name">
             </label>
+            @error('name')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
         <div class="flex flex-col w-full gap-2 px-5">
             <p class="font-semibold">Email Address</p>
@@ -81,6 +84,9 @@
                     class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                     placeholder="Write your email">
             </label>
+            @error('email')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
         <div class="flex flex-col w-full gap-2 px-5">
             <p class="font-semibold">Phone No</p>
@@ -91,6 +97,9 @@
                     class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                     placeholder="Write your phone">
             </label>
+            @error('phone')
+            <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
+            @enderror
         </div>
         <div class="flex items-center justify-between px-5">
             <p class="font-semibold">Duration in Month</p>

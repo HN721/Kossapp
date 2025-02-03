@@ -22,9 +22,17 @@ class CostumerInformationStoreRequest extends FormRequest
             'name' => 'required',
             'email' => 'required',
             'phone' => 'required',
-            'duration' => 'required',
-            'start_date' => 'required',
 
+
+        ];
+    }
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Nama lengkap wajib diisi.',
+            'email.required' => 'Email wajib diisi.',
+            'email.email' => 'Format email tidak valid.',
+            'phone.required' => 'Nomor telepon wajib diisi.',
         ];
     }
 }

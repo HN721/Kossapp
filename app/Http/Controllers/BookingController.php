@@ -37,9 +37,9 @@ class BookingController extends Controller
         return view('pages.booking.information', compact('boardingHouse', 'transaction', 'room'));
     }
 
-    public function  saveInformation(CostumerInformationStoreRequest $request, $slug)
+    public function  saveInformation(Request $request, $slug)
     {
-        $data = $request->validate();
+        $data = $request->all();
         $this->transactionRepository->saveTransactionDataToSession($data);
         return redirect()->route('booking.checkout', $slug);
     }
